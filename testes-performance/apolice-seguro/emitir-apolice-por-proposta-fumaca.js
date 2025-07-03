@@ -13,8 +13,8 @@ export default function() {
 
     const respostaProposta = http.post(urlProposta, JSON.stringify(dadosProposta()), {
         headers: { 'Content-Type': 'application/json' },
-    })
-            
+    })            
+
     const urlApolice = `http://localhost:8080/seguro/apolice`
     const respostaApolice = http.post(urlApolice, respostaProposta.body, {
         headers: { 'Content-Type': 'application/json' },
