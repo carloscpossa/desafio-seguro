@@ -1,5 +1,6 @@
 using DesafioSeguro.Compartilhado;
-using DesafioSeguro.Seguro.Entidades;
+using DesafioSeguro.Seguro.Dominio.Entidades;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro;
 
 namespace DesafioSeguro.Unidade.Construtores;
 
@@ -10,8 +11,9 @@ internal sealed class PropostaConstrutor : ConstrutorBase<PropostaConstrutor, Pr
 
     private Cliente cliente;
     private Veiculo veiculo;
-    private ValorMonetario valorDoSeguro = new(0);
-
+    private ICalculadorSeguro calculadorSeguro;
+    
+    
     public PropostaConstrutor()
     {
         Redefinir();
@@ -33,13 +35,21 @@ internal sealed class PropostaConstrutor : ConstrutorBase<PropostaConstrutor, Pr
             .Redefinir()
             .Instanciar();
 
-        valorDoSeguro = new ValorMonetario(_faker.Random.Decimal(min: 1));
+        calculadorSeguro = new CalculadorSeguroFalso();
         
         return this;
     }
 
     public override Proposta Instanciar()
     {
-        return new Proposta(veiculo, cliente, valorDoSeguro);
+        return new Proposta(veiculo, cliente, calculadorSeguro);
+    }
+}
+
+internal class CalculadorSeguroFalso : ICalculadorSeguro
+{
+    public decimal Calcular(Proposta proposta)
+    {
+        return decimal.Round(proposta.Veiculo.ValorDeTabela.Valor * 0.06m, 2, MidpointRounding.AwayFromZero);
     }
 }

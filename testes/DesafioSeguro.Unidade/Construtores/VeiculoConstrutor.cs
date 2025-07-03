@@ -1,5 +1,5 @@
 using DesafioSeguro.Compartilhado;
-using DesafioSeguro.Seguro.Entidades;
+using DesafioSeguro.Seguro.Dominio.Entidades;
 
 namespace DesafioSeguro.Unidade.Construtores;
 

@@ -1,41 +1,38 @@
+using DesafioSeguro.Compartilhado;
+using DesafioSeguro.Compartilhado.Comandos;
+using DesafioSeguro.Seguro;
+using DesafioSeguro.Seguro.Dominio.Comandos.Proposta;
+
+using Microsoft.AspNetCore.Mvc;
+
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder
+    .Services
+    .RegistrarCompartilhadoDependencias()
+    .RegistrarSeguroDependencias(builder.Configuration);
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+//Está habilitado para todos os ambientes apenas para testar a aplicação
+app.MapScalarApiReference();
+app.MapOpenApi();
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+app.MapPost("/seguro/proposta", 
+        async (CadastrarPropostaComando comando, 
+            [FromServices] IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado> manipulador) =>
+        {
+            var resultado = await manipulador.ManipularAsync(comando);
+            return resultado.Sucesso ? Results.Ok(resultado.Dados) : Results.BadRequest(resultado.Erros);
+        })
+        .WithName("CadastroProposta")
+        .WithSummary("Cadastrar propostas de seguros automativos");
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

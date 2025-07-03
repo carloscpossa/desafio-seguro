@@ -1,8 +1,9 @@
 using AwesomeAssertions;
 
 using DesafioSeguro.Compartilhado.Servicos.CalculadorIdade;
-using DesafioSeguro.Seguro.Entidades;
-using DesafioSeguro.Seguro.Servicos.CalculoSeguro;
+using DesafioSeguro.Seguro.Dominio.Entidades;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro.CalculoAdicionaisRisco.RiscosCliente;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro.CalculoBase;
 using DesafioSeguro.Unidade.Construtores;
 
 using Moq;

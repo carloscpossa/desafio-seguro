@@ -1,6 +1,6 @@
 using AwesomeAssertions;
 
-using DesafioSeguro.Seguro.Servicos.CalculoSeguro;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro.CalculoBase;
 using DesafioSeguro.Unidade.Construtores;
 
 namespace DesafioSeguro.Unidade.Seguro.Servicos.CalculoSeguro;

@@ -1,6 +1,8 @@
 using AwesomeAssertions;
 
-using DesafioSeguro.Seguro.Servicos.CalculoSeguro;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro.CalculoAdicionaisRisco;
+using DesafioSeguro.Seguro.Dominio.Servicos.CalculoSeguro.CalculoBase;
 using DesafioSeguro.Unidade.Construtores;
 
 using Moq;
