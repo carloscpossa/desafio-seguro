@@ -61,4 +61,15 @@ O diretório `testes-performance` contém scripts de teste de performance utiliz
 4. Exemplo para executar o teste de carga de emissão de apólices
    ```bash
    k6 run ./testes-performance/testes/apolice-seguro/emitir-apolice-por-proposta-carga.js
-   ``` 
+   ```
+
+### Imagens da execução de alguns testes de performance
+
+1. Cadastro de 1000 propostas de seguros por minuto
+![image](https://github.com/user-attachments/assets/7da343b9-4a30-40d1-b2b5-e9c28f8f453d)
+
+2. Teste de simulação de propostas de seguros com 220 usuários simultâneos
+![image](https://github.com/user-attachments/assets/964034fb-b227-4ed1-99e6-b051dfd1a578)
+
+3. Teste de simulação de emissão de 10.000 apólices por dia
+![image](https://github.com/user-attachments/assets/7dc6e757-9bf7-4943-9f7c-d301bc9f239c)
