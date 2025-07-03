@@ -12,7 +12,7 @@ Este projeto consiste em uma aplicação (Web API) para criação de propostas d
 - Como banco de dados, foi utilizado o [MongoDb](https://www.mongodb.com/)
 - A aplicação (solution) é composta de dois projetos:
   - Um projeto com nome DesafioSeguro dentro da pasta `src` que é o projeto com o código de produção das Web APIs. Essas APIs foram desenvolvidas usando [minimal apis](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-9.0&tabs=visual-studio)
-  - Um projeto dentro da pasta `testes` com o nome DesafioSeguro.Unidade que é um projeto de testes de unidade utilizando xUnit e algumas bibliotecas como: Moq, AutoMocker, Bogus e AwesomeAssertions.
+  - Um projeto dentro da pasta `testes` com o nome DesafioSeguro.Unidade que é um projeto de testes de unidade utilizando xUnit e algumas bibliotecas como: Moq, AutoMocker, Bogus e AwesomeAssertions. O objetivo deste projeto foi testar as regras de cálculo do sistema e, por isso, há várias partes do sistema que estão sem cobertura de testes.
 - Para visualizar a documentação da API (OpenAPI) e realizar interações manuais, foi utilizada a ferramenta [Scalar](https://scalar.com/)
 - Todos os recursos necessários para execução da aplicação e das ferramentas utilizadas estão definidos no arquivo `docker-compose.yaml`.
 - Para executar a aplicação, o modo mais fácil é através de containers rodando o comando `docker compose up -d` a partir do diretório raiz deste projeto.
