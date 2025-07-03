@@ -7,7 +7,7 @@ services:
 
   seguroapi:
     build:
-      context: .      
+      context: ./desafio-seguro-api
     ports:
       - "8080:8080" 
     container_name: seguroapi
