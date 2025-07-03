@@ -18,9 +18,9 @@ export const options = {
     scenarios: {
         cadastrar_propostas_1000_por_minuto: {
             executor: 'constant-arrival-rate',            
-            duration: '1m',
+            duration: '5m',
             rate: 1000,
-            timeUnit: '5m',
+            timeUnit: '1m',
             preAllocatedVUs: 50,
             maxVUs: 200,            
         },        
