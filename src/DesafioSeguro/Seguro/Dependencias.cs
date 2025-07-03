@@ -1,4 +1,5 @@
 using DesafioSeguro.Compartilhado.Comandos;
+using DesafioSeguro.Seguro.Dominio.Comandos.Apolice;
 using DesafioSeguro.Seguro.Dominio.Comandos.Proposta;
 using DesafioSeguro.Seguro.Dominio.Fabricas;
 using DesafioSeguro.Seguro.Dominio.Repositorios;
@@ -22,12 +23,14 @@ public static class Dependencias
         IConfiguration configuration)
     {
         //Manipuladores (Handlers)
-        services.AddScoped<IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado>, Manipulador>();
+        services.AddScoped<IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado>, PropostaManipulador>();
+        services.AddScoped<IManipulador<EmitirApolicePorPropostaComando, EmitirApoliceResultado>, ApoliceManipulador>();
         
         //Fábricas
         services.AddScoped<IClienteFabrica, ClienteFabrica>();
         services.AddScoped<IVeiculoFabrica, VeiculoFabrica>();
         services.AddScoped<IPropostaFabrica, PropostaFabrica>();
+        services.AddScoped<IApoliceFabrica, ApoliceFabrica>();
         
         //Servicos
         services.AddScoped<ICalculadorSeguro, CalculadorSeguro>();
@@ -39,6 +42,7 @@ public static class Dependencias
         
         //Repositórios
         services.AddScoped<IPropostaRepositorio, PropostaRepositorio>();
+        services.AddScoped<IApoliceRepositorio, ApoliceRepositorio>();
         
         //Options
         services.Configure<MondoDbOptions>(options =>

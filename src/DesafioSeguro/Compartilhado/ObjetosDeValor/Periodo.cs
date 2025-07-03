@@ -1,3 +1,3 @@
 namespace DesafioSeguro.Compartilhado;
 
-public record Periodo(DateTime Inicio, DateTime Fim);
+public record Periodo(DateOnly Inicio, DateOnly Fim);

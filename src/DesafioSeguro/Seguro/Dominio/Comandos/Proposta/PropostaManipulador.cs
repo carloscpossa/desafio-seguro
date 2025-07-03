@@ -5,7 +5,7 @@ using DesafioSeguro.Seguro.Dominio.Repositorios;
 
 namespace DesafioSeguro.Seguro.Dominio.Comandos.Proposta;
 
-public sealed class Manipulador(IPropostaFabrica propostaFabrica, IPropostaRepositorio repositorio)
+public sealed class PropostaManipulador(IPropostaFabrica propostaFabrica, IPropostaRepositorio repositorio)
     : IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado>
 {
 
