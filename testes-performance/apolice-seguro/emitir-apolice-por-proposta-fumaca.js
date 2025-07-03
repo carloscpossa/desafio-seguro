@@ -22,7 +22,7 @@ export default function() {
 
     check(respostaApolice, {
         'Status 201': (res) => res.status === 201
-    })
-
+    })    
+    
     sleep(1)
 }

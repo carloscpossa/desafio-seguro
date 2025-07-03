@@ -20,6 +20,17 @@ public static class PropostaWebApi
             .WithTags(Tag)
             .WithSummary("Cadastrar Proposta")
             .WithDescription("Cadastrar propostas de seguros automotivos");
+        
+        app.MapPost("/seguro/propostas/simulacao",
+                async (SimularPropostaComando comando,
+                    [FromServices] IManipulador<SimularPropostaComando, SimularPropostaResultado> manipulador) =>
+                {
+                    var resultado = await manipulador.ManipularAsync(comando);
+                    return resultado.Sucesso ? Results.Ok(resultado.Dados) : Results.BadRequest(resultado.Erros);
+                })
+            .WithTags(Tag)
+            .WithSummary("Simular Proposta")
+            .WithDescription("Simular propostas de seguros automotivos");
 
         return app;
     }

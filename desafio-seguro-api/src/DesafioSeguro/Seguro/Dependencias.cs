@@ -23,7 +23,8 @@ public static class Dependencias
         IConfiguration configuration)
     {
         //Manipuladores (Handlers)
-        services.AddScoped<IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado>, PropostaManipulador>();
+        services.AddScoped<IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado>, CadastrarPropostaManipulador>();
+        services.AddScoped<IManipulador<SimularPropostaComando, SimularPropostaResultado>, SimularPropostaManipulador>();
         services.AddScoped<IManipulador<EmitirApolicePorPropostaComando, EmitirApoliceResultado>, ApoliceManipulador>();
         
         //Fábricas

@@ -5,10 +5,9 @@ using DesafioSeguro.Seguro.Dominio.Repositorios;
 
 namespace DesafioSeguro.Seguro.Dominio.Comandos.Proposta;
 
-public sealed class PropostaManipulador(IPropostaFabrica propostaFabrica, IPropostaRepositorio repositorio)
+public sealed class CadastrarPropostaManipulador(IPropostaFabrica propostaFabrica, IPropostaRepositorio repositorio)
     : IManipulador<CadastrarPropostaComando, CadastrarPropostaResultado>
 {
-
     public async Task<Resultado<CadastrarPropostaResultado>> ManipularAsync(CadastrarPropostaComando comando)
     {
         var proposta = propostaFabrica.Criar(comando);
