@@ -49,7 +49,7 @@ O diretório `testes-performance` contém scripts de teste de performance utiliz
 
 ### Testes de Performance
 
-1. Instale o [k6](https://k6.io/docs/getting-started/installation/).
+1. Instale o [k6](https://grafana.com/docs/k6/latest/).
 2. Exemplo para executar o teste de carga do cadastro de propostas
    ```bash
    k6 run ./testes-performance/testes/proposta-seguro/cadastrar-proposta-carga.js
