@@ -24,6 +24,12 @@ internal sealed class PropostaConstrutor : ConstrutorBase<PropostaConstrutor, Pr
         this.veiculo = veiculo;
         return this;
     }
+
+    public PropostaConstrutor ComCalculadorSeguro(ICalculadorSeguro calculadorSeguro)
+    {
+        this.calculadorSeguro = calculadorSeguro;
+        return this;
+    }
     
     public override PropostaConstrutor Redefinir()
     {
